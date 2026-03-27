@@ -9,9 +9,9 @@
 
 
 ##Info
-- Student No: 00000000
-- Name: 홍길동
-- E-mail: example@email.com
+- Student No: 22411956
+- Name: 김경훈
+- E-mail: legodol2@naver.com
 
 ## Revision History
 
