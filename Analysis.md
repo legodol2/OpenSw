@@ -1,1 +1,507 @@
-#
+#My cycling Diary
+
+
+![](images/secondlogo.jpg)
+
+Student No: 22411956
+Name: 김경훈
+Email: legodo2@naver.com
+
+#1.indtroduction
+
+##1) Summary
+자전거는 전세계에서 3번째로 많이 이용하는 이동수단인 만큼 취미로 자전거 라이딩하는 사람이 굉장히 많다. 취미로 라이딩은 즐기는 사람들은 각자의 라이딩을 기록하고 각 라이딩에 대해 자신의 기록을 넘는 것을 즐기는 것을 주로 하는데, 최근에 이 자전거 기록 어플리케이션중 가장 높은 비중을 차지 하던 앱이 한국을 포함한 여러 국가에서 통신법 관련으로 서비스를 종료하였다. 이로 인해 많은 자전거 라이더들이 불편을 겪고 있다. 또한 해당 앱은 리커버리 추천 혹은 기록 단축을 위한 훈련법등을 추천하는 기능은 없었으며, 기본적인 정보(오늘 달린코스, 평균속도등)을 제외한 모든 정보에 접근을 유료화로 접근 가능하도록 만들어놓아 많은 사람들이 불편을 겪었다. 이러한 불편함을 해결하기 위해 광고삽입을 통해 기능의 무료화를 만들것이며, 기존 부족했던 라이딩 외의 회복훈련이나 자신의 퍼포먼스 증진을 위한 훈련등을 추천하는 기능을 만들어줄 것이다. 또한 라이딩 이외의 자전거 커뮤니티, 게시판등 sns의 요소도 접목할 예정이다.
+##2) Describe the features of project
+“My Cycling Diary”는 자전거 라이딩 기록을 기본으로 기록경쟁, 훈련 추천, 자전거 커뮤니티 활성화를 제공하는 시스템이다.
+
+#2. Use case analysis
+
+##1)usecasediagram
+![usecasediagram](images/usecasediagram.png)
+
+
+##2)Use case description
+
+Use Case #1 : Register Member
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	사용자가 새로운 계정을 생성한다.
+Scope	Cycling Application
+Level	User level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	User
+Secondary Actors	System
+Preconditions	없음
+Trigger	회원가입 버튼 클릭
+Success Post Condition	계정이 생성된다
+Failed Post Condition	입력 오류 또는 중복 계정
+MAIN SUCCESS SCENARIO
+Step	Action
+1	사용자가 회원가입 버튼을 클릭한다
+2	사용자 정보 입력
+3	시스템이 정보 검증
+4	계정 생성
+
+Use Case #2 : Log-in
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	사용자가 시스템에 로그인한다
+Scope	Cycling Application
+Level	User level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	User
+Secondary Actors	System
+Preconditions	계정 존재
+Trigger	로그인 시도
+Success Post Condition	로그인 성공
+Failed Post Condition	인증 실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	사용자 ID/PW 입력
+2	시스템 검증
+3	로그인 성공
+Use Case #3 : Start Ride
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	사용자가 라이딩 기록을 시작한다
+Scope	Cycling Application
+Level	User level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	User
+Secondary Actors	GPS
+Preconditions	로그인 상태
+Trigger	라이딩 시작 버튼
+Success Post Condition	기록 시작됨
+Failed Post Condition	GPS 오류
+MAIN SUCCESS SCENARIO
+Step	Action
+1	로그인
+2	시작 버튼 클릭
+3	GPS 추적 시작
+
+Use Case #4 : GPS Tracking
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	GPS를 이용하여 위치를 추적한다
+Scope	Cycling Application
+Level	System level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	System
+Secondary Actors	GPS
+Preconditions	기록 중
+Trigger	라이딩 진행
+Success Post Condition	위치 데이터 생성
+Failed Post Condition	GPS 신호 없음
+MAIN SUCCESS SCENARIO
+Step	Action
+1	GPS 활성화
+2	위치 데이터 수집
+3	지속적 기록
+Use Case #5 : Upload GPS File
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	사용자가 외부 GPS 파일을 업로드하여 라이딩 기록을 추가한다
+Scope	Cycling Application
+Level	User level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	User
+Secondary Actors	Device
+Preconditions	로그인 상태
+Trigger	파일 업로드 선택
+Success Post Condition	GPS 데이터가 저장된다
+Failed Post Condition	파일 형식 오류
+MAIN SUCCESS SCENARIO
+Step	Action
+1	사용자가 파일 업로드 선택
+2	GPS 파일 선택
+3	시스템이 파일 검증
+4	데이터 저장
+
+Use Case #6 : Process Ride Data
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	시스템이 GPS 데이터를 분석 가능한 형태로 변환한다
+Scope	Cycling Application
+Level	System level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	System
+Secondary Actors	Database
+Preconditions	데이터 존재
+Trigger	데이터 입력
+Success Post Condition	분석 가능한 데이터 생성
+Failed Post Condition	데이터 오류
+MAIN SUCCESS SCENARIO
+Step	Action
+1	GPS 데이터 수신
+2	데이터 정제
+3	구조화 처리
+
+Use Case #7 : Analyze Ride Data
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	속도, 거리, 시간을 계산한다
+Scope	Cycling Application
+Level	System level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	System
+Secondary Actors	없음
+Preconditions	데이터 처리 완료
+Trigger	분석 요청
+Success Post Condition	분석 결과 생성
+Failed Post Condition	계산 오류
+MAIN SUCCESS SCENARIO
+Step	Action
+1	데이터 불러오기
+2	거리 계산
+3	속도 계산
+4	시간 계산
+
+Use Case #8 : Estimate Power
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	파워 값을 예측한다
+Scope	Cycling Application
+Level	System level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	System
+Secondary Actors	없음
+Preconditions	분석 데이터 존재
+Trigger	분석 완료
+Success Post Condition	파워 값 생성
+Failed Post Condition	계산 불가
+MAIN SUCCESS SCENARIO
+Step	Action
+1	데이터 입력
+2	알고리즘 적용
+3	파워 계산
+
+Use Case #9 : Save Ride Record
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	라이딩 데이터를 데이터베이스에 저장한다
+Scope	Cycling Application
+Level	System level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	System
+Secondary Actors	Database
+Preconditions	데이터 존재
+Trigger	저장 요청
+Success Post Condition	데이터 저장 완료
+Failed Post Condition	저장 실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	데이터 수신
+2	DB 연결
+3	데이터 저장
+
+Use Case #10 : View Ride Record
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	사용자가 자신의 라이딩 기록과 분석 결과를 조회한다
+Scope	Cycling Application
+Level	User level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	User
+Secondary Actors	Database
+Preconditions	사용자가 로그인한 상태이며 저장된 기록이 존재한다
+Trigger	사용자가 “기록 조회” 메뉴를 선택한다
+Success Post Condition	라이딩 기록 및 분석 데이터가 화면에 표시된다
+Failed Post Condition	기록이 존재하지 않거나 데이터 로딩에 실패한다
+
+Use Case #11 : Share Record
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	사용자가 라이딩 기록을 공유한다
+Scope	Cycling Application
+Level	User level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	User
+Secondary Actors	System
+Preconditions	기록 존재
+Trigger	공유 버튼 클릭
+Success Post Condition	기록 공유됨
+Failed Post Condition	공유 실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	기록 선택
+2	공유 클릭
+3	시스템 게시
+
+Use Case #12 : Social Interaction
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	댓글 및 좋아요 기능
+Scope	Cycling Application
+Level	User level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	User
+Secondary Actors	System
+Preconditions	게시물 존재
+Trigger	상호작용 클릭
+Success Post Condition	반응 저장
+Failed Post Condition	실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	게시물 선택
+2	좋아요/댓글
+3	저장
+
+Use Case #13 : Ranking & Competition
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	사용자 기록 비교
+Scope	Cycling Application
+Level	User level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	User
+Secondary Actors	System
+Preconditions	기록 존재
+Trigger	랭킹 조회
+Success Post Condition	랭킹 표시
+Failed Post Condition	실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	데이터 비교
+2	순위 계산
+3	표시
+
+Use Case #14 : Training Recommendation
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	훈련 방법 추천
+Scope	Cycling Application
+Level	System level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	System
+Secondary Actors	없음
+Preconditions	데이터 존재
+Trigger	분석 완료
+Success Post Condition	추천 제공
+Failed Post Condition	실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	데이터 분석
+2	추천 생성
+3	사용자 제공
+
+Use Case #15 : Recovery Recommendation
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	회복 방법 추천
+Scope	Cycling Application
+Level	System level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	System
+Secondary Actors	없음
+Preconditions	데이터 존재
+Trigger	분석 완료
+Success Post Condition	회복 방법 제공
+Failed Post Condition	실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	데이터 분석
+2	회복 방법 생성
+3	제공
+
+Use Case #16 : Manage Users
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	관리자가 사용자 계정을 관리한다
+Scope	Cycling Application
+Level	Admin level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	Admin
+Secondary Actors	System
+Preconditions	관리자 로그인
+Trigger	관리 메뉴 선택
+Success Post Condition	계정 관리 완료
+Failed Post Condition	실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	관리자 로그인
+2	사용자 목록 확인
+3	수정/삭제
+
+Use Case #17 : Manage Data
+GENERAL CHARACTERISTICS
+항목	내용
+Summary	관리자가 시스템 데이터를 관리한다
+Scope	Cycling Application
+Level	Admin level
+Author	Kim Kyunghoon
+Last Update	2026. 05
+Status	Draft
+Primary Actor	Admin
+Secondary Actors	Database
+Preconditions	관리자 로그인
+Trigger	데이터 관리 선택
+Success Post Condition	데이터 관리 완료
+Failed Post Condition	실패
+MAIN SUCCESS SCENARIO
+Step	Action
+1	데이터 조회
+2	수정/삭제
+3	저장
+
+##3. Domain analysis
+
+1) Main_Cycling_System
+시스템의 모든 과정이 이 클래스를 통해 시행된다. 사용자의 회원가입, 로그인, 라이딩 기록, GPS 데이터 처리, 기록 조회, 공유, 랭킹, 훈련 추천 등의 기능은 이 클래스를 통해 실행 및 변경이 이루어진다.
+2) Registration
+시스템을 이용하기 위한 권한을 부여하는 클래스이다. 사용자는 이 클래스를 통해 회원가입을 하며, 회원가입을 완료한 사용자만 로그인 기능을 사용할 수 있다.
+3) Login
+시스템을 사용하기 위해 실행해야 하는 클래스이다. 시스템에 접근하려는 사용자가 누구인지 판별하고, 그 결과를 시스템에 알려준다.
+4) Ride_Record
+사용자가 라이딩을 시작하고 종료했을 때 생성되는 기록을 관리하는 클래스이다. 라이딩 시간, 거리, 평균 속도, 이동 경로 등의 정보를 저장한다.
+5) GPS_Tracking
+사용자의 현재 위치를 GPS를 통해 실시간으로 수집하는 클래스이다. 수집된 위치 정보는 라이딩 경로와 거리, 속도 계산에 사용된다.
+6) Upload_GPS_File
+사용자가 외부 GPS 장치나 속도계에서 생성된 GPS 파일을 업로드할 때 사용하는 클래스이다. 업로드된 파일은 시스템에서 처리할 수 있는 데이터로 변환된다.
+7) Process_Ride_Data
+GPS 데이터나 업로드된 파일을 분석 가능한 형태로 처리하는 클래스이다. 잘못된 데이터나 불필요한 값을 정리하고 라이딩 기록으로 저장할 수 있도록 변환한다.
+8) Data_Analysis
+사용자의 라이딩 데이터를 분석하는 클래스이다. 거리, 시간, 평균 속도, 최고 속도 등의 정보를 계산하며 파워 예측값을 산출하는 데 사용된다.
+9) Save_Record
+처리 및 분석이 완료된 라이딩 데이터를 데이터베이스에 저장하는 클래스이다. 저장된 기록은 이후 사용자가 조회하거나 공유할 수 있다.
+10) View_Record
+사용자가 자신의 라이딩 기록을 확인할 때 사용하는 클래스이다. 저장된 거리, 시간, 속도, 경로, 분석 결과 등을 사용자에게 보여준다.
+11) Share_Record
+사용자가 자신의 라이딩 기록을 다른 사용자에게 공유할 때 사용하는 클래스이다. 공개된 기록은 다른 사용자가 확인할 수 있다.
+12) Social_Interaction
+사용자들이 서로의 라이딩 기록에 반응할 수 있도록 하는 클래스이다. 댓글, 좋아요 등의 기능을 제공하여 사용자 간 상호작용을 가능하게 한다.
+13) Ranking_System
+사용자들의 라이딩 기록을 비교하여 순위를 제공하는 클래스이다. 거리, 속도, 기록 시간 등의 데이터를 기준으로 경쟁 기능을 수행한다.
+14) Training_Recommendation
+사용자의 라이딩 기록을 분석하여 적절한 훈련 방법을 추천하는 클래스이다. 사용자의 운동 수준과 기록을 바탕으로 더 높은 퍼포먼스를 낼 수 있는 방법을 제안한다.
+15) Recovery_Recommendation
+사용자의 라이딩 기록과 운동 강도를 바탕으로 회복 방법을 추천하는 클래스이다. 무리한 운동을 방지하고 건강한 라이딩을 돕는 역할을 한다.
+16) Management
+관리자가 사용자 정보와 시스템 데이터를 관리하는 클래스이다. 회원 정보 확인, 부적절한 기록 관리, 시스템 데이터 수정 등의 기능을 수행한다.
+17) Database
+사용자의 개인정보, 라이딩 기록, GPS 데이터, 분석 결과, 공유 기록 등을 저장하는 클래스이다. 시스템의 여러 클래스들이 필요한 데이터를 이 클래스를 통해 저장하거나 불러온다.
+
+#4. User Interface prototype
+1. Main Screen 
+-------------------------
+ MY CYCLING DIARY
+
+ [ Start Ride ]
+
+ Recent Records
+ Ranking
+ Training
+
+-------------------------
+-앱작동시 바로 보이는 화면이며 피드와 구별되어있다
+2. Login Screen
+-------------------------
+        LOGIN
+
+ ID:  __________
+
+ PW:  __________
+
+ [ Login ]
+
+ [ Register ]
+-------------------------
+로그인이 안되어있다면 로그인창으로 넘어가 엑세스 가능하도록 한다
+3. Ride Recording Screen
+-------------------------
+   RIDING NOW
+
+ Time: 01:12:22
+ Speed: 28 km/h
+ Distance: 34.2 km
+
+      [ MAP ]
+
+ [ Pause ]   [ Stop ]
+-------------------------
+-인앱 기록 버튼 누를시 인앱에서 기록되는 화면으로 전환된다
+
+4. Record View Screen
+-------------------------
+   MY RECORD
+
+ Distance : 52 km
+ Avg Speed : 31 km/h
+ Time : 1h 48m
+
+ [ View Route ]
+ [ Share ]
+-------------------------
+-활동을끝내거나 파일 업로드시 나오는 화면이다
+5. Ranking Screen
+-------------------------
+      RANKING
+
+ 1. User_A
+ 2. User_B
+ 3. User_C
+
+-------------------------
+-기록탭에서 기록을 열람하였을때 나오는 화면이다
+
+6. Training Recommendation Screen
+-------------------------
+ TRAINING PLAN
+
+ - Interval Training
+ - Recovery Ride
+ - Hill Climb Training
+
+-------------------------
+-리커버리 혹은 훈련 팁 받을수 있는 화면이다
+##5. Glossary
+
+1) GPS
+Global Positioning System의 약자로, 사용자의 현재 위치를 위성을 통해 확인하는 시스템이다. 라이딩 경로와 거리 측정에 사용된다.
+2) Ride
+사용자가 자전거를 타는 활동을 의미한다. 앱에서는 하나의 라이딩 기록 단위로 사용된다.
+3) Ride Record
+사용자의 라이딩 결과 데이터를 의미한다. 거리, 시간, 평균 속도, 이동 경로 등의 정보를 포함한다.
+4) Database (DB)
+사용자의 개인정보, 라이딩 기록, GPS 데이터 등을 저장하는 저장소이다.
+5) GPS File
+GPS 장치 또는 속도계에서 생성된 위치 기반 데이터 파일이다. 앱에 업로드하여 기록을 저장할 수 있다.
+6) Average Speed
+라이딩 중 이동한 총 거리와 시간을 이용하여 계산한 평균 속도를 의미한다.
+7) Power Estimation
+라이딩 데이터(속도, 경사도 등)를 기반으로 사용자의 예상 파워 값을 계산하는 기능이다.
+
+##6. References
+https://www.bing.com/search?pglt=297&q=mapbox+strava&cvid=3908c932aede4144a18ad85521b20f89&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQgyMjEzajBqN6gCALACAA&FORM=ANNTA1&PC=SMTS
+https://support.strava.com/hc/en-us/articles/216917857-Uploading-Manual-Activities
